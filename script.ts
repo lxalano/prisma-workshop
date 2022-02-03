@@ -5,17 +5,9 @@ const prisma = new PrismaClient()
 // A `main` function so that you can use async/await
 async function main() {
   // ... you will write your Prisma Client queries here
-  const result = await prisma.user.create({
-    data: {
-      name: 'Alice',
-      email: '5@qq.com ',
-      posts: {
-        create: {
-          title: 'A great new Post',
-          content: 'This is a great new Post',
-        },
-      },
-    },
+  const result = await prisma.user.findMany({
+    skip: 2,
+    take: 2, 
   });
   console.log(result);
 }
